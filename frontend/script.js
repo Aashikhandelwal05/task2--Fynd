@@ -136,16 +136,18 @@ async function fetchReviews() {
     }
 }
 
-// Format date to readable string
+// Format date to readable string in Indian Standard Time
 function formatDate(isoString) {
     if (!isoString) return 'N/A';
     const date = new Date(isoString);
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata',
         year: 'numeric',
         month: 'short',
         day: 'numeric',
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
+        hour12: true
     });
 }
 
