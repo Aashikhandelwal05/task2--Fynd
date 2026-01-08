@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin dashboard for viewing and managing customer feedback">
+    <title>Admin Dashboard | Feedback Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Feedback Dashboard</h1>
+            <p>Review and analyze customer feedback with automated insights</p>
+            <nav class="nav-links">
+                <a href="user.html" class="nav-link">Submit Feedback</a>
+                <a href="admin.html" class="nav-link active">Admin Dashboard</a>
+            </nav>
+        </header>
+
+        <main class="card">
+            <div class="card-header">
+                <h2>Customer Feedback Overview</h2>
+            </div>
+
+            <div class="toolbar">
+                <div class="toolbar-info">
+                    <span id="reviewCount">Loading...</span>
+                </div>
+                <button class="btn btn-secondary" id="refreshBtn" onclick="fetchReviews()">
+                    <span id="refreshBtnText">↻ Refresh</span>
+                    <span id="refreshSpinner" class="spinner" style="display: none;"></span>
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table id="reviewsTable">
+                    <thead>
+                        <tr>
+                            <th>Rating</th>
+                            <th>Review</th>
+                            <th>Summary</th>
+                            <th>Recommended Action</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reviewsBody"></tbody>
+                </table>
+            </div>
+
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-state-icon">📭</div>
+                <h3>No Feedback Yet</h3>
+                <p>Customer feedback will appear here once submitted.</p>
+                <a href="user.html" class="btn btn-primary" style="margin-top: 1rem;">Submit First Feedback</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', fetchReviews);
+        setInterval(fetchReviews, 30000);
+    </script>
+</body>
+
+</html>

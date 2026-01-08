@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit your feedback and receive a personalized response">
+    <title>Submit Feedback | Feedback Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Feedback Dashboard</h1>
+            <p>Share your experience and receive instant personalized responses</p>
+            <nav class="nav-links">
+                <a href="user.html" class="nav-link active">Submit Feedback</a>
+                <a href="admin.html" class="nav-link">Admin Dashboard</a>
+            </nav>
+        </header>
+
+        <main class="card">
+            <div class="card-header">
+                <h2>Submit Your Feedback</h2>
+            </div>
+
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="rating">How would you rate your experience?</label>
+                    <select id="rating" name="rating" required>
+                        <option value="" disabled selected>Select a rating</option>
+                        <option value="5">⭐⭐⭐⭐⭐ Excellent (5)</option>
+                        <option value="4">⭐⭐⭐⭐ Good (4)</option>
+                        <option value="3">⭐⭐⭐ Average (3)</option>
+                        <option value="2">⭐⭐ Poor (2)</option>
+                        <option value="1">⭐ Very Poor (1)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="review">Tell us more about your experience</label>
+                    <textarea id="review" name="review" placeholder="Share your thoughts, suggestions, or concerns..."
+                        required maxlength="5000"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitBtn">
+                    <span id="btnText">Submit Feedback</span>
+                    <span id="btnSpinner" class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div id="responseBox" class="response-box">
+                <h3>Response</h3>
+                <p id="responseText"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
