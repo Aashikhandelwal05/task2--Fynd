@@ -2,7 +2,10 @@
  * Feedback Dashboard - Frontend
  */
 
-const API_BASE_URL = 'http://localhost:8000';
+// Production: Update this URL after deploying backend to Render
+const API_BASE_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:8000'
+    : 'https://YOUR_RENDER_APP_NAME.onrender.com';
 
 // Submit review form handler
 async function submitReview(event) {
